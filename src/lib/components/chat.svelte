@@ -75,11 +75,11 @@
 		messages={chatMessages}
 	/>
 
-	<!-- {#if chatMessages.length === 0}
-		<div class="mx-auto max-w-3xl px-4">
+	{#if chatMessages.length === 0}
+		<div class="bg-background mx-auto flex w-full gap-2 px-4 pb-4 md:max-w-3xl md:pb-6">
 			<SuggestedActions chatClient={{ append: (msg) => sendMessage(msg.content) }} />
 		</div>
-	{/if} -->
+	{/if}
 
 	<form class="bg-background mx-auto flex w-full gap-2 px-4 pb-4 md:max-w-3xl md:pb-6" 
 		onsubmit={(e) => {
@@ -93,7 +93,7 @@
 					bind:value={inputValue}
 					placeholder="Ask about transferring stocks to Robinhood..."
 					disabled={isLoading}
-					class="border-0 bg-transparent p-0 text-sm ring-0 placeholder:text-muted-foreground focus-visible:ring-0 resize-none flex-1"
+					class="border-0 bg-transparent p-0 text-sm ring-0 placeholder:text-muted-foreground focus-visible:ring-0 focus:ring-0 focus:outline-none resize-none flex-1"
 					onkeydown={(e) => {
 						if (e.key === 'Enter' && !e.shiftKey) {
 							e.preventDefault();

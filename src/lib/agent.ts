@@ -88,7 +88,13 @@ Be conversational and helpful. Ask one question at a time to avoid overwhelming 
   apiKey: process.env.OPENAI_API_KEY
 });
 
-export async function runStockTransferAgent(userMessage: string) {
-  const result = await run(stockTransferAgent, userMessage);
+export async function runStockTransferAgent(messages: Array<{role: string, content: string}>) {
+  // Convert UI messages to simple conversation history for the agent
+  const conversationHistory = messages.map(msg => `${msg.role}: ${msg.content}`).join('\n');
+  const latestMessage = messages[messages.length - 1]?.content || '';
+  
+  console.log('Conversation history:', conversationHistory);
+  
+  const result = await run(stockTransferAgent, `Previous conversation:\n${conversationHistory}\n\nLatest message: ${latestMessage}`);
   return result;
 }

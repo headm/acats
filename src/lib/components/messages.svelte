@@ -51,7 +51,9 @@
 
 <div bind:this={containerRef} class="flex min-w-0 flex-1 flex-col gap-6 overflow-y-scroll pt-4">
 	{#if mounted && messages.length === 0}
-		<Overview />
+		<div class="flex-1 flex items-center justify-center min-h-0">
+			<Overview />
+		</div>
 	{/if}
 
 	{#each messages as message (message.id)}

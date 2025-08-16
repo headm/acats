@@ -11,22 +11,19 @@ export async function POST({ request }) {
 		error(401, 'Unauthorized');
 	}
 
-	const userMessage = getMostRecentUserMessage(messages);
+	// Convert UI messages to simple format for agent
+	const conversationMessages = messages.map(msg => ({
+		role: msg.role,
+		content: msg.parts
+			.filter(part => part.type === 'text')
+			.map(part => part.text)
+			.join(' ')
+	}));
 
-	if (!userMessage) {
-		error(400, 'No user message found');
-	}
-
-	// Extract text content from UI message parts
-	const textContent = userMessage.parts
-		.filter(part => part.type === 'text')
-		.map(part => part.text)
-		.join(' ');
-
-	console.log('Processing message:', textContent);
+	console.log('Processing conversation:', conversationMessages);
 
 	try {
-		const agentResult = await runStockTransferAgent(textContent);
+		const agentResult = await runStockTransferAgent(conversationMessages);
 		console.log('Agent result:', agentResult.finalOutput);
 
 		// Return UIMessage format

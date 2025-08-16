@@ -6,9 +6,9 @@
 
 	const suggestedActions = [
 		{
-			title: 'Transfer my stocks',
-			label: 'from Fidelity to Robinhood',
-			action: 'I want to transfer my stocks from Fidelity to Robinhood. Can you help me?'
+			title: 'Transfer stocks',
+			label: 'from another brokerage to Robinhood',
+			action: 'I want to transfer stocks from another brokerage to Robinhood. Can you help me?'
 		},
 		{
 			title: 'What fees',
