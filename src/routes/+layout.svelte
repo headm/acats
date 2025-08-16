@@ -1,12 +1,12 @@
 <script lang="ts">
-	import favicon from '$lib/assets/favicon.svg';
 	import '../app.css';
+	import { ThemeProvider } from '@sejohnson/svelte-themes';
+	import { Toaster } from '$lib/components/ui/sonner';
 
 	let { children } = $props();
 </script>
 
-<svelte:head>
-	<link rel="icon" href={favicon} />
-</svelte:head>
-
-{@render children?.()}
+<ThemeProvider attribute="class" disableTransitionOnChange>
+	<Toaster position="top-center" />
+	{@render children()}
+</ThemeProvider>

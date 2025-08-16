@@ -1,38 +1,61 @@
-# sv
+# ACATS Transfer Assistant
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+An AI-powered agent that helps users transfer stocks from other brokerages into Robinhood using OpenAI's agents framework.
 
-## Creating a project
+## Features
 
-If you're seeing this, you've probably already done this step. Congrats!
+- Interactive AI agent for stock transfer assistance
+- Collects all required transfer information
+- Answers questions about the transfer process
+- Simulates transfer submission with tracking ID
+- Built with SvelteKit and Tailwind CSS
 
-```sh
-# create a new project in the current directory
-npx sv create
+## Setup
 
-# create a new project in my-app
-npx sv create my-app
+1. Install dependencies:
+```bash
+npm install
 ```
 
-## Developing
+2. Set your OpenAI API key in `.env`:
+```bash
+OPENAI_API_KEY=your_openai_api_key_here
+```
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+## Usage
 
-```sh
+### Interactive Agent Mode
+Run the transfer assistant in interactive mode:
+```bash
+npm run agent:interactive
+```
+
+### Web Chat Interface
+Start the development server to use the interactive web chat:
+```bash
 npm run dev
+```
+Then visit http://localhost:5173 to chat with the agent in your browser.
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+### Single Query Mode
+Run a single query against the agent:
+```bash
+npm run agent
 ```
 
-## Building
+## Transfer Information Required
 
-To create a production version of your app:
+The agent will collect:
+- Account type (taxable, IRA, joint)
+- Source brokerage name
+- Account number from source brokerage
+- Transfer type (full account or specific assets)
+- Specific assets and quantities (if partial transfer)
 
-```sh
-npm run build
-```
+## Transfer Process
 
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+- Transfers use ACATS system
+- Typically take 5-7 business days
+- Robinhood reimburses up to $75 in fees for transfers $7,500+
+- Supports stocks, ETFs, options (not expiring soon), cash, and margin balances
+- Does NOT support fractional shares, crypto, mutual funds, or bonds

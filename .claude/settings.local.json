@@ -6,7 +6,16 @@
       "Bash(npx sv add:*)",
       "Bash(npm install:*)",
       "Bash(npx tailwindcss init:*)",
-      "Bash(./node_modules/.bin/tailwindcss:*)"
+      "Bash(./node_modules/.bin/tailwindcss:*)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "WebFetch(domain:api.github.com)",
+      "Bash(rm:*)",
+      "Bash(cp:*)",
+      "Bash(mv:*)"
+    ],
+    "additionalDirectories": [
+      "/Users/michaelhead/Projects"
     ]
   },
   "enableAllProjectMcpServers": false
