@@ -9,5 +9,8 @@
 		<p>
 			I'm an AI-powered assistant that helps you transfer stocks from other brokerages into Robinhood. I can guide you through the process step by step and answer any questions you might have along the way.
 		</p>
+		<p class="text-sm text-red-600 font-semibold">
+			DEMO ONLY. NOT AFFILIATED WITH ROBINHOOD. DO NOT ENTER YOUR PERSONAL INFORMATION
+		</p>
 	</div>
 </div>
