@@ -12,7 +12,8 @@
       "WebFetch(domain:api.github.com)",
       "Bash(rm:*)",
       "Bash(cp:*)",
-      "Bash(mv:*)"
+      "Bash(mv:*)",
+      "Bash(git checkout:*)"
     ],
     "additionalDirectories": [
       "/Users/michaelhead/Projects"

@@ -28,7 +28,7 @@ export async function POST({ request }) {
 
 		// Return UIMessage format
 		return json({
-			id: crypto.randomUUID(),
+			id: Math.random().toString(36).substring(2, 15),
 			role: 'assistant',
 			parts: [{ type: 'text', text: agentResult.finalOutput }],
 			createdAt: new Date()
@@ -38,7 +38,7 @@ export async function POST({ request }) {
 		console.error('Agent error:', error);
 		
 		return json({
-			id: crypto.randomUUID(),
+			id: Math.random().toString(36).substring(2, 15),
 			role: 'assistant', 
 			parts: [{ type: 'text', text: 'I apologize, but I encountered an error processing your request. Please try again.' }],
 			createdAt: new Date()
