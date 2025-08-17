@@ -134,4 +134,20 @@
 		font-weight: 100 900;
 		src: url(/fonts/geist-mono.woff2) format('woff2');
 	}
+
+	/* Mobile viewport fixes */
+	@supports (-webkit-touch-callout: none) {
+		.mobile-fix {
+			height: 100vh;
+			height: -webkit-fill-available;
+		}
+	}
+
+	/* Prevent horizontal padding loss on mobile focus */
+	@media (max-width: 768px) {
+		body {
+			padding-left: env(safe-area-inset-left);
+			padding-right: env(safe-area-inset-right);
+		}
+	}
 }

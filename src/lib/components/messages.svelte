@@ -24,9 +24,6 @@
 		mounted = true;
 	});
 
-	$effect(() => {
-		console.log('Messages component - messages updated:', messages);
-	});
 
 	const scrollLock = getLock('messages-scroll');
 
